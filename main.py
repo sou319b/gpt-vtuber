@@ -1,12 +1,13 @@
+# ... existing code ...
+from dotenv import load_dotenv
+import os
 import openai
 
-# OpenAI APIキーを設定
-# openai.api_key = ''
-import os
-api_key = os.environ.get("OPENAI_API_KEY")
-
-from dotenv import load_dotenv
+# .envファイルから環境変数を読み込む
 load_dotenv()
+
+# OpenAI APIキーを設定
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def chat_with_openai(prompt):
     response = openai.ChatCompletion.create(
